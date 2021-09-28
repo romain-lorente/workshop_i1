@@ -1,0 +1,44 @@
+.button {
+    color:red;
+    text-align: center;
+}
+.button1{
+    color: royalblue;
+    
+}
+
+.question {
+    color:green;
+    font-size: 20px;
+    text-align: center;
+}
+.centre {
+    text-align: center;
+}
+.container {
+    background-color: rosybrown;
+    opacity: 0.8;
+    
+
+}
+.general {
+    width: 35%;
+    border: solid 2px black;
+    border-radius: 15px;
+    
+    
+
+}
+.button2{
+    color:green;
+    font-size: 20px;
+    background-color: rgb(114, 185, 226);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.general0{
+    display: flex;
+    justify-content: space-around;
+    
+    
+}
