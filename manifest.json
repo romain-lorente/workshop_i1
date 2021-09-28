@@ -9,13 +9,17 @@
         "default_popup": "mdp.html",
         "default_icon": 
         {
-            //TODO
+            "16": "images/icons8-clé-16.png",
+            "32": "images/icons8-clé-32.png",
+            "128": "images/icons8-clé-128.png"
         }
     },
 
     "icons":
     {
-        //TODO
+        "16": "images/icons8-clé-16.png",
+        "32": "images/icons8-clé-32.png",
+        "128": "images/icons8-clé-128.png"
     },
 
     "commands":
