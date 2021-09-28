@@ -2,5 +2,37 @@
     "name": "PasswordGen",
     "description": "Un générateur de mots de passe intelligent.",
     "version": "1.0",
-    "manifest_version": 3
-  }
+    "manifest_version": 2,
+
+    "browser_action": 
+    {
+        "default_popup": "mdp.html",
+        "default_icon": 
+        {
+            //TODO
+        }
+    },
+
+    "icons":
+    {
+        //TODO
+    },
+
+    "commands":
+    {
+        "_execute_browser_action":
+        {
+            "suggested_key":
+            {
+                "default": "Alt+P",
+                "mac": "Alt+P"
+            }
+        }
+    },
+
+    "background":
+    {
+        "scripts": ["background.js"],
+        "persistent": false
+    }
+}
