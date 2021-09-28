@@ -1,0 +1,6 @@
+{
+    "name": "PasswordGen",
+    "description": "Un générateur de mots de passe intelligent.",
+    "version": "1.0",
+    "manifest_version": 3
+  }
