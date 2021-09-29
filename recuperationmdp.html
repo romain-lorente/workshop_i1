@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>MDP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="general0 page">
+        <div class="general">
+            <div class="container centre">
+                <p>
+                <h1>GénéraLock</h1>
+                </p>
+
+                <form method="post">
+                    <h3>Vous souhaitez récupérer votre mot de passe pour le site <span id="nomSite"></span></h3>
+                    <h3>Veuillez entrer votre clé de sécurité</h3>
+                    <input type="text" name="cle" id="cle"/>
+
+                    <div class="button">
+                        <button class="button2" id="boutonValider" type="button">Récupérer</button>
+                        <p id="resultat"></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="crypto/core.js"></script>
+<script src="crypto/aes.js"></script>
+<script src="mdpoublie.js"></script>
+</html>

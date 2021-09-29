@@ -1,82 +1,84 @@
 <!doctype html>
 <html lang="fr">
+
 <head>
-  <meta charset="utf-8">
-  <title>MDP</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <title>MDP</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-    <body>
 
-<div class="general0">
-    <div class="general">
-        <div class="container">
+<body>
+    <div class="general0">
+        <div class="general">
+            <div class="container">
+                <form method="post" class="centre">
+                    <p>
+                    <h1>GénéraLock</h1>
+                    </p>
 
-        <form method="post" class="centre">
-            <p>
-                <h1>GénéraLock</h1>
-            </p>
+                    <p>
+                        <select name="chiffre" class="chiffre-select" id="q1">
+                            <option value="">--Choisissez une question--</option>
+                            <option value="naissance">Votre année de naissance</option>
+                            <option value="bonheur">Votre numéro porte-bonheur</option>
+                        </select>
+                        <input type="text" name="chiffre" id="reponse1" placeholder="Taper votre reponse ici"
+                            maxlength="4" />
+                    </p>
+                    <p>
+                        <select name="chiffre" class="chiffre-select" id="q2">
+                            <option value="">--Choisissez une question--</option>
+                            <option value="villeNaiss">Votre ville de naissance</option>
+                            <option value="film">Votre film préféré</option>
+                            <option value="marque">Votre marque de voiture préférée</option">
+                        </select>
+                        <input type="text" name="reponse2" id="reponse2" placeholder="Taper votre reponse ici"
+                            maxlength="100" />
+                    </p>
+                    <p>
+                        <select name="chiffre" class="chiffre-select" id="q3">
+                            <option value="">--Choisissez une question--</option>
+                            <option value="reseau">Votre réseau social préféré</option>
+                            <option value="plat">Votre plat préferé</option>
+                            <option value="pays">Votre pays préferé</option>
+                        </select>
+                        <input type="text" name="reponse3" id="reponse3" placeholder="Taper votre reponse ici"
+                            maxlength="100" />
+                    </p>
+                    <p>
+                        <select name="chiffre" class="chiffre-select" id="q4">
+                            <option value="">--Choisissez une question--</option>
+                            <option value="sport">Quel sport pratiquez-vous</option>
+                            <option value="couleur">Votre couleur préférée</option>
+                            <option value="paysNaiss">Votre pays de naissance</option>
+                        </select>
+                        <input type="text" name="pseudo" id="reponse4" placeholder="Taper votre reponse ici"
+                            maxlength="100" />
+                    </p>
+                    <p>
+                        <select name="chiffre" class="chiffre-select" id="q5">
+                            <option value="">--Choisissez une question--</option>
+                            <option value="metier">Quel métier exercez-vous</option>
+                            <option value="fruit">Votre fruit préféré</option>
+                            <option value="legume">Votre légume préféré</option>
+                        </select>
+                        <input type="text" name="pseudo" id="reponse5" placeholder="Taper votre reponse ici"
+                            maxlength="100" />
+                    </p>
 
-            <p>
-                <select name="chiffre" class="chiffre-select" id="q1">
-                    <option value="">--Choisissez une question--</option>
-                    <option value="naissance">Votre année de naissance</option>
-                    <option value="bonheur">Votre numéro porte-bonheur</option>
-                </select>
-                <input type="text" name="chiffre" id="reponse1" placeholder="Taper votre reponse ici" maxlength="4" />
-            </p>
-            <p>
-                <select name="chiffre" class="chiffre-select" id="q2">
-                    <option value="">--Choisissez une question--</option>
-                    <option value="villeNaiss">Votre ville de naissance</option>
-                    <option value="film">Votre film préféré</option>
-                    <option value="marque">Votre marque de voiture préférée</option">
-                </select>
-                <input type="text" name="reponse2" id="reponse2" placeholder="Taper votre reponse ici" maxlength="100" />
-            </p>
-            <p>
-                <select name="chiffre" class="chiffre-select" id="q3">
-                        <option value="">--Choisissez une question--</option>
-                        <option value="reseau">Votre réseau social préféré</option>
-                        <option value="plat">Votre plat préferé</option>
-                        <option value="pays">Votre pays préferé</option>
-                </select>
-                <input type="text" name="reponse3" id="reponse3" placeholder="Taper votre reponse ici" maxlength="100"/>
-            </p>
-            <p>
-                <select name="chiffre" class="chiffre-select" id="q4">
-                    <option value="">--Choisissez une question--</option>
-                    <option value="sport">Quel sport pratiquez-vous</option>
-                    <option value="couleur">Votre couleur préférée</option>
-                    <option value="paysNaiss">Votre pays de naissance</option>
-                </select>
-                <input type="text" name="pseudo" id="reponse4" placeholder="Taper votre reponse ici" maxlength="100" />
-            </p>
-            <p>
-                <select name="chiffre" class="chiffre-select" id="q5">
-                    <option value="">--Choisissez une question--</option>
-                    <option value="metier">Quel métier exercez-vous</option>
-                    <option value="fruit">Votre fruit préféré</option>
-                    <option value="legume">Votre légume préféré</option>
-                </select>
-                <input type="text" name="pseudo" id="reponse5" placeholder="Taper votre reponse ici" maxlength="100" />
-            </p>
-            
-         <div class="button">
-            <button class="button2" id="boutongen" type="button">Génerer le mot de passe</button>
-             <p id="resultat"> </p>
-           
+                    <div class="button">
+                        <button class="button2" id="boutongen" type="button">Génerer le mot de passe</button>
+                        <p id="resultat"> </p>
+
+                    </div>
+                    <a href="Mot de passe oublié ?" id="versMdpOublie">Mot de passe oublié ?</a>
+                </form>
+            </div>
         </div>
-        <a href="Mot de passe oublié ?">Mot de passe oublié ?</a>
-    </form>
-
     </div>
-    </div>
-    </div>
-
-    
-    </body>
-    <script src="crypto/core.js"></script>
-    <script src="crypto/aes.js"></script>
-    <script src="text.js"></script>
+</body>
+<script src="crypto/core.js"></script>
+<script src="crypto/aes.js"></script>
+<script src="text.js"></script>
 
 </html>

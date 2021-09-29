@@ -2,7 +2,24 @@ var boutongen = document.getElementById('boutongen');
 var text = document.getElementById('resultat');
 boutongen.addEventListener('click',generer,false);
 
-function generer () {
+var lienMdpOublie = document.getElementById('versMdpOublie');
+
+lienMdpOublie.addEventListener('click',versMdpOublie,false);
+
+function versMdpOublie()
+{
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) 
+    {
+        var activeTab = tabs[0];
+        var currentSite = new URL(activeTab.url);
+        var currentHostname = currentSite.hostname;
+        
+        chrome.tabs.create({active: true, url: "recuperationmdp.html?site=" + currentHostname});
+    });
+}
+
+function generer() 
+{
     //Récupération des réponses
     var rep1 = document.getElementById('reponse1').value; 
     var rep2 = document.getElementById('reponse2').value; 
@@ -129,7 +146,7 @@ function stockerMotDePasse(mdp)
         var activeTab = tabs[0];
         var currentSite = new URL(activeTab.url);
         var currentHostname = currentSite.hostname;
-        
+
         motDePasseLocalStorage(currentHostname, mdp);
     });
 }
