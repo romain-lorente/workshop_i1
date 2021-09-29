@@ -57,18 +57,8 @@ function generer () {
         //Clé de sécurité
         var cleSecurite = creerCleSecurite(mdpCle[1], tabIndex);
 
-        /*TEST
-        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) 
-        {
-            var activeTab = tabs[0];
-            var currentSite = activeTab.url;
-            console.log(currentSite);
-        });
-
-        var encrypted = CryptoJS.AES.encrypt(mdpCle[0], cleSecurite).toString();
-        console.log(encrypted);
-        console.log(CryptoJS.AES.decrypt(encrypted, cleSecurite).toString(CryptoJS.enc.Utf8));
-        */
+        //Chiffrement et enregistrement du mot de passe
+        stockerMotDePasse(chiffrerMotDePasse(mdpCle[0], cleSecurite));
     }
     else
     {
@@ -120,4 +110,32 @@ function stockerDonnees(tabQ, tabR)
             localStorage.setItem(tabQ[j], tabR[j]);
         }
     }
+}
+
+function chiffrerMotDePasse(mdp, cle)
+{
+    return CryptoJS.AES.encrypt(mdp, cle).toString();
+}
+
+function dechiffrerMotDePasse(mdp, cle)
+{
+    return CryptoJS.AES.decrypt(mdp, cle).toString(CryptoJS.enc.Utf8);
+}
+
+function stockerMotDePasse(mdp)
+{
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) 
+    {
+        var activeTab = tabs[0];
+        var currentSite = new URL(activeTab.url);
+        var currentHostname = currentSite.hostname;
+        
+        motDePasseLocalStorage(currentHostname, mdp);
+    });
+}
+
+function motDePasseLocalStorage(site, mdp)
+{
+    //Ajoute un mot de passe déjà chiffré dans le localstorage
+    localStorage.setItem(site, mdp);
 }
