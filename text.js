@@ -55,7 +55,20 @@ function generer () {
         stockerDonnees(tabQuestions, tabReponses);
 
         //Clé de sécurité
-        console.log(creerCleSecurite(mdpCle[1], tabIndex));
+        var cleSecurite = creerCleSecurite(mdpCle[1], tabIndex);
+
+        /*TEST
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) 
+        {
+            var activeTab = tabs[0];
+            var currentSite = activeTab.url;
+            console.log(currentSite);
+        });
+
+        var encrypted = CryptoJS.AES.encrypt(mdpCle[0], cleSecurite).toString();
+        console.log(encrypted);
+        console.log(CryptoJS.AES.decrypt(encrypted, cleSecurite).toString(CryptoJS.enc.Utf8));
+        */
     }
     else
     {
@@ -108,4 +121,3 @@ function stockerDonnees(tabQ, tabR)
         }
     }
 }
-
