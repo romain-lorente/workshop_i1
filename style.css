@@ -2,39 +2,73 @@ body {
     width: 400px;
     height: 300px;
 }
+
 .button {
-    color:red;
+    color: red;
     text-align: center;
 }
-.button1{
+
+.button1 {
     color: royalblue;
 }
+
 .question {
-    color:green;
+    color: green;
     font-size: 20px;
     text-align: center;
 }
+
 .centre {
     text-align: center;
 }
+
+.chiffre-select {
+    width: 180px;
+    border-radius: 5px;
+    border: 0px;
+}
+
+.centre .p .input {
+    border-radius: 5px;
+    box-shadow: 10px 5px 5px red;
+}
+
+.chiffre-select:hover {
+    background-color: yellow;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+        rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    font-size: 15px;
+}
+
 .container {
     opacity: 0.8;
 }
+
 .general {
     width: 400px;
     height: 300px;
     border: solid 2px black;
     border-radius: 15px;
-    background-color: rosybrown;
+    /*background-color: rosybrown;*/
 }
-.button2{
-    color:green;
-    font-size: 20px;
+
+.button2 {
+    color: green;
+    font-size: 18px;
+    border-radius: 10px;
     background-color: rgb(114, 185, 226);
     margin-top: 20px;
     margin-bottom: 20px;
 }
-.general0{
+
+.button2:hover {
+    color: yellow;
+    background-color: black;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+        rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.general0 {
     display: flex;
     justify-content: space-around;
 }
