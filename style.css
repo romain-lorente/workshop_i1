@@ -7,6 +7,10 @@ body {
   .button {
     color: rgb(29, 140, 204);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .button1 {
     color: royalblue;
@@ -40,8 +44,8 @@ body {
     opacity: 0.8;
   }
   .general {
-    width: 400px;
-    height: 300px;
+    width: 425px;
+    height: 360px;
     border: solid 2px black;
     border-radius: 15px;
     /*background-color: rosybrown;*/
@@ -50,9 +54,9 @@ body {
     color: rgba(0, 0, 0, 0.575);
     font-size: 18px;
     border-radius: 10px;
-    background-color: rgb(149, 205, 241);
-    margin-top: 20px;
-    margin-bottom: 20px;
+    background-color: rgba(40, 161, 236, 0.322);
+    margin-top: 15px;
+    margin-bottom: 10px;
   }
   /*.button2:hover {
     color: yellow;
@@ -64,3 +68,19 @@ body {
     display: flex;
     justify-content: space-around;
   }
+
+  .button3 {
+    color: rgba(0, 0, 0, 0.575);
+    font-size: 18px;
+    border-radius: 10px;
+    background-color: rgba(40, 161, 236, 0.322);
+    margin-top: 15px;
+    margin-bottom: 80px;
+  }
+#resultat{
+    border:solid 2px rgb(255, 255, 255);
+    height: 20px;
+    width: 300px;
+    border-radius: 4px;
+    
+}
