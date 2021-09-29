@@ -17,18 +17,42 @@ function generer () {
     var valeurQ4 = document.getElementById('q4').value;
     var valeurQ5 = document.getElementById('q5').value;
 
-    console.log(valeurQ1 + " " + valeurQ2 + " " + valeurQ3 + " " + valeurQ4 + " " + valeurQ5);
+    //Vérifier que l'utilisateur a sélectionné toutes ses questions
+    var tabQuestions = [valeurQ1, valeurQ2, valeurQ3, valeurQ4, valeurQ5];
+    var tabReponses = [rep1, rep2, rep3,rep4, rep5];
+    var questionEstValide = true;
+    var reponseEstValide = true;
 
-    var tab = [rep1, rep2, rep3,rep4, rep5 ];
-    var res = "";
-
-    while(tab.length > 0)
+    for (let i=0; i<tabQuestions.length; i++)
     {
-        var i = Math.floor(Math.random() * tab.length);
-        
-        res += tab[i];
-        tab.splice(i, 1);
+        if(tabQuestions[i] == "")
+        {
+            questionEstValide = false;
+        }
+
+        if(tabReponses[i] == "")
+        {
+            reponseEstValide = false;
+        }
     }
 
-    text.innerText = res;
+    if(questionEstValide && reponseEstValide)
+    {
+        //Génère le mot de passe
+        var mdp = "";
+    
+        while(tabReponses.length > 0)
+        {
+            var i = Math.floor(Math.random() * tabReponses.length);
+            
+            mdp += tabReponses[i];
+            tabReponses.splice(i, 1);
+        }
+    
+        text.innerText = mdp;
+    }
+    else
+    {
+        text.innerText = "Veuillez compléter le formulaire.";
+    }
 }
