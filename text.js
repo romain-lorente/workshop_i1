@@ -19,7 +19,8 @@ function generer () {
 
     //Vérifier que l'utilisateur a sélectionné toutes ses questions
     var tabQuestions = [valeurQ1, valeurQ2, valeurQ3, valeurQ4, valeurQ5];
-    var tabReponses = [rep1, rep2, rep3,rep4, rep5];
+    var tabReponses = [rep1, rep2, rep3, rep4, rep5];
+    var tabReponsesTemp = tabReponses.slice();
     var questionEstValide = true;
     var reponseEstValide = true;
 
@@ -41,18 +42,32 @@ function generer () {
         //Génère le mot de passe
         var mdp = "";
     
-        while(tabReponses.length > 0)
+        while(tabReponsesTemp.length > 0)
         {
-            var i = Math.floor(Math.random() * tabReponses.length);
+            var i = Math.floor(Math.random() * tabReponsesTemp.length);
             
-            mdp += tabReponses[i];
-            tabReponses.splice(i, 1);
+            mdp += tabReponsesTemp[i];
+            tabReponsesTemp.splice(i, 1);
         }
     
         text.innerText = mdp;
+
+        //Stocke les questions et leurs réponses
+        stockerDonnees(tabQuestions, tabReponses);
     }
     else
     {
         text.innerText = "Veuillez compléter le formulaire.";
+    }
+}
+
+function stockerDonnees(tabQ, tabR)
+{
+    for (let j=0; j<tabQ.length; j++)
+    {
+        if(localStorage.getItem(tabQ[j]) == null)
+        {
+            localStorage.setItem(tabQ[j], tabR[j]);
+        }
     }
 }
