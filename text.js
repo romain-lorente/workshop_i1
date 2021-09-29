@@ -1,10 +1,12 @@
 var boutongen = document.getElementById('boutongen');
 var text = document.getElementById('resultat');
+var txtCle = document.getElementById('txtCle');
 boutongen.addEventListener('click',generer,false);
 
 var lienMdpOublie = document.getElementById('versMdpOublie');
-
 lienMdpOublie.addEventListener('click',versMdpOublie,false);
+
+const iv = CryptoJS.enc.Base64.parse('generalock');
 
 function versMdpOublie()
 {
@@ -65,17 +67,18 @@ function generer()
     if(questionEstValide && reponseEstValide)
     {
         //Génère le mot de passe
-        var mdpCle = generationMdp(tabReponses);
-        text.innerText = mdpCle[0];
+        var mdpEtOrdre = generationMdp(tabReponses);
+        text.innerText = mdpEtOrdre[0];
 
         //Stocke les questions et leurs réponses
         stockerDonnees(tabQuestions, tabReponses);
 
         //Clé de sécurité
-        var cleSecurite = creerCleSecurite(mdpCle[1], tabIndex);
+        var cleSecurite = creerCleSecurite(mdpEtOrdre[1], tabIndex);
+        txtCle.innerText = "Clé de sécurité (à conserver) : " + cleSecurite;
 
         //Chiffrement et enregistrement du mot de passe
-        stockerMotDePasse(chiffrerMotDePasse(mdpCle[0], cleSecurite));
+        stockerMotDePasse(chiffrerMotDePasse(mdpEtOrdre[0], cleSecurite), cleSecurite);
     }
     else
     {
@@ -139,20 +142,33 @@ function dechiffrerMotDePasse(mdp, cle)
     return CryptoJS.AES.decrypt(mdp, cle).toString(CryptoJS.enc.Utf8);
 }
 
-function stockerMotDePasse(mdp)
+function stockerMotDePasse(mdp, cle)
 {
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) 
     {
+        //Récupération du domaine actif
         var activeTab = tabs[0];
         var currentSite = new URL(activeTab.url);
         var currentHostname = currentSite.hostname;
 
-        motDePasseLocalStorage(currentHostname, mdp);
+        enregistrementMotDePasse(currentHostname, mdp);
+
+        //Chiffrement de la clé de sécurité avec le domaine pour clé
+        var cleChiffree = CryptoJS.AES.encrypt(cle, CryptoJS.enc.Utf8.parse(currentHostname), {iv: iv}).toString();
+
+        enregistrementCleSite(cleChiffree, currentHostname);
+        console.log(cle + " - " + currentHostname);
     });
 }
 
-function motDePasseLocalStorage(site, mdp)
+function enregistrementMotDePasse(site, mdp)
 {
     //Ajoute un mot de passe déjà chiffré dans le localstorage
     localStorage.setItem(site, mdp);
+}
+
+function enregistrementCleSite(cle, site)
+{
+    //Ajoute la clé chiffrée liée à un site
+    localStorage.setItem(cle, site);
 }

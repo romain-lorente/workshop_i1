@@ -4,6 +4,11 @@ body {
     height: 100%;
     display: flex;
   }
+.texteBasPage
+{
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
   .button {
     color: rgb(29, 140, 204);
     text-align: center;
