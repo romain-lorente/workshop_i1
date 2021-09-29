@@ -11,11 +11,13 @@ function generer () {
     var rep5 = document.getElementById('reponse5').value;
 
     //Récupération des types de questions
-    var q1 = document.getElementById('q1').value;
-    var q2 = document.getElementById('q2').value;
-    var q3 = document.getElementById('q3').value;
-    var q4 = document.getElementById('q4').value;
-    var q5 = document.getElementById('q5').value;
+    var valeurQ1 = document.getElementById('q1').value;
+    var valeurQ2 = document.getElementById('q2').value;
+    var valeurQ3 = document.getElementById('q3').value;
+    var valeurQ4 = document.getElementById('q4').value;
+    var valeurQ5 = document.getElementById('q5').value;
+
+    console.log(valeurQ1 + " " + valeurQ2 + " " + valeurQ3 + " " + valeurQ4 + " " + valeurQ5);
 
     var tab = [rep1, rep2, rep3,rep4, rep5 ];
     var res = "";
