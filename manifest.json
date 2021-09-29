@@ -9,17 +9,17 @@
         "default_popup": "mdp.html",
         "default_icon": 
         {
-            "16": "images/icons8-clé-16.png",
-            "32": "images/icons8-clé-32.png",
-            "128": "images/icons8-clé-128.png"
+            "16": "images/icon16.png",
+            "32": "images/icon32.png",
+            "128": "images/icon128.png"
         }
     },
 
     "icons":
     {
-        "16": "images/icons8-clé-16.png",
-        "32": "images/icons8-clé-32.png",
-        "128": "images/icons8-clé-128.png"
+        "16": "images/icon16.png",
+        "32": "images/icon32.png",
+        "128": "images/icon128.png"
     },
 
     "commands":
