@@ -92,7 +92,7 @@ function generer()
         text.innerText = mdpEtOrdre[0];
 
         //Stocke les questions et leurs réponses
-        stockerDonnees(tabQuestions, tabReponses);
+        //stockerDonnees(tabQuestions, tabReponses);
 
         //Clé de sécurité
         var cleSecurite = creerCleSecurite(mdpEtOrdre[1], tabIndex);
@@ -142,7 +142,8 @@ function creerCleSecurite(ordre, index)
     return cle;
 }
 
-function stockerDonnees(tabQ, tabR)
+//La fonctionnalité utilisant ces données n'est pas implémentée
+/*function stockerDonnees(tabQ, tabR)
 {
     for (let j=0; j<tabQ.length; j++)
     {
@@ -151,7 +152,7 @@ function stockerDonnees(tabQ, tabR)
             localStorage.setItem(tabQ[j], tabR[j]);
         }
     }
-}
+}*/
 
 function chiffrerMotDePasse(mdp, cle)
 {
