@@ -79,7 +79,7 @@ function generer()
             questionEstValide = false;
         }
 
-        if(tabReponses[i] == "")
+        if(tabReponses[i].replace(" ", "") == "")
         {
             reponseEstValide = false;
         }
