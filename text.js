@@ -177,6 +177,7 @@ function stockerMotDePasse(mdp, cle)
         //Chiffrement de la clé de sécurité avec le domaine pour clé
         var cleChiffree = CryptoJS.AES.encrypt(cle, CryptoJS.enc.Utf8.parse(currentHostname), {iv: iv}).toString();
 
+        suppressionAncienneCle(currentHostname);
         enregistrementCleSite(cleChiffree, currentHostname);
     });
 }
@@ -185,6 +186,20 @@ function enregistrementMotDePasse(site, mdp)
 {
     //Ajoute un mot de passe déjà chiffré dans le localstorage
     localStorage.setItem(site, mdp);
+}
+
+function suppressionAncienneCle(site)
+{
+    for(let i=0; i<localStorage.length; i++)
+    {
+        let cle = localStorage.key(i);
+        let valeur = localStorage.getItem(cle);
+
+        if(valeur == site)
+        {
+            localStorage.removeItem(cle);
+        }
+    }
 }
 
 function enregistrementCleSite(cle, site)
