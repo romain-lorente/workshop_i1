@@ -1,7 +1,9 @@
 var boutongen = document.getElementById('boutongen');
+var boutonsuppr = document.getElementById('boutonsuppr');
 var text = document.getElementById('resultat');
 var txtCle = document.getElementById('txtCle');
 boutongen.addEventListener('click',generer,false);
+boutonsuppr.addEventListener('click',supprimerBDD,false);
 
 var lienMdpOublie = document.getElementById('versMdpOublie');
 lienMdpOublie.addEventListener('click',versMdpOublie,false);
@@ -18,6 +20,25 @@ function versMdpOublie()
         
         chrome.tabs.create({active: true, url: "recuperationmdp.html?site=" + currentHostname});
     });
+}
+
+function supprimerBDD()
+{
+    let nb1 = Math.floor(Math.random() * 10) + 1;
+    let nb2 = Math.floor(Math.random() * 10) + 1;
+    let nbAttendu = nb1 + nb2;
+
+    let nbEntre = prompt("Pour supprimer tous vos mots de passe, veuillez calculer la somme des nombres suivants : \n\n" + nb1 + " + " + nb2 + " = ?");
+
+    if(nbEntre == nbAttendu)
+    {
+        localStorage.clear();
+        alert("Suppression des mots de passe réussie.");
+    }
+    else
+    {
+        alert("Le résultat est incorrect. Suppression annulée.");
+    }
 }
 
 function generer() 
