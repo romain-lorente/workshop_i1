@@ -14,7 +14,6 @@ txtNomSite.innerText = nomSite;
 function recupererMdp()
 {
     var cleSecurite = document.getElementById('cle').value.toString();
-    console.log(cleSecurite + " - " + nomSite);
     var cleChiffree = CryptoJS.AES.encrypt(cleSecurite, CryptoJS.enc.Utf8.parse(nomSite), {iv: iv}).toString();
     var entreeLocalStorage = localStorage.getItem(cleChiffree);
 

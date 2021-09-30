@@ -157,7 +157,6 @@ function stockerMotDePasse(mdp, cle)
         var cleChiffree = CryptoJS.AES.encrypt(cle, CryptoJS.enc.Utf8.parse(currentHostname), {iv: iv}).toString();
 
         enregistrementCleSite(cleChiffree, currentHostname);
-        console.log(cle + " - " + currentHostname);
     });
 }
 

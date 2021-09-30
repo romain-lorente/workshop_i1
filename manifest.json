@@ -3,7 +3,21 @@
     "description": "Générateur de mots de passe intuitif.",
     "version": "1.0",
     "manifest_version": 2,
-    "permissions": ["storage", "tabs"],
+    "permissions": ["storage", "tabs", "*://*/*"],
+
+    "background":
+    {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+
+    "content_scripts": 
+    [
+        {
+          "matches": ["*://*/*"],
+          "js": ["rememberme.js"]
+        }
+    ],
 
     "browser_action": 
     {
@@ -33,11 +47,5 @@
                 "mac": "Alt+P"
             }
         }
-    },
-
-    "background":
-    {
-        "scripts": ["background.js"],
-        "persistent": false
     }
 }
